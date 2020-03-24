@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+        </f:facet>
+        <title>#{lbl['app.title']}</title>
+    </h:head>
+
+    <h:body styleClass="login-body">
+<!--         <p:messages id="messages" closable="true">
+                            <p:autoUpdate/>
+                        </p:messages>-->
+        <h:form id="form_login">
+            <p:focus context="@form"/>
+            <div class="login-panel ui-fluid">
+                <div class="ui-g">
+                    <div class="ui-g-12 logo-container">
+                        <p:graphicImage name="logo_escudo2.png" library="img"  styleClass="logo"/>
+                     
+                    </div>
+                    <div class="ui-g-12">
+                        <p:growl id="messages">
+                            <p:autoUpdate/>
+                        </p:growl>
+                          <h2 class="username" >#{lbl['login.mensaje.ingreso']}</h2>
+                        <p:outputLabel for="username" value="#{lbl['login.usuario']}" />
+                        <div class="input-wrapper">
+                            <p:inputText id="username"
+                                         placeholder="#{lbl['login.usuario']}"
+                                         value="#{beanLogin.username}"/>
+                            <i class="fa fa-user" />
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <p:outputLabel for="password" value="#{lbl['login.contrasena']}" />
+                        <div class="input-wrapper">
+                            <p:password id="password"
+                                        placeholder="#{lbl['login.contrasena']}"
+                                        value="#{beanLogin.password}"/>
+                            <i class="fa fa-lock" />
+                        </div>
+                       
+                    </div>
+                    <div class="ui-g-12 button-container">
+                        <p:commandButton id="btn_login"
+                                         class="button-consulta"
+                                         actionListener="#{beanLogin.login()}"
+                                         value="#{lbl['boton.acceso']}"
+                                         
+                                         update="@form"/>
+                         
+                    </div>
+
+                        <div class="input-wrapper">
+                          <p:commandLink  action="pagina/tramite/exoneracion.xhtml">
+                           <p:graphicImage name="Firma.png" style="height:70px;" library="img" styleClass="logo"/>
+                           </p:commandLink>
+                        </div>
+                       
+                   
+
+                    <h:outputStylesheet name="css/layout-#{beanPreferencias.layout}.css" library="paradise-layout" />
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+
+</html>

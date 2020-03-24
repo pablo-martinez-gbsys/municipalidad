@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>com.gbsys.exotra</groupId>
+        <artifactId>exotra</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    
+    <groupId>com.gbsys.exotra</groupId>
+    <artifactId>exotra-ws-seguridad</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+    
+    <name>EXOTRA WS Seguridad</name>
+    
+    <dependencies>
+        <dependency>
+            <groupId>com.gbsys.exotra</groupId>
+            <artifactId>exotra-xsd</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <id>id-exotra</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <verbose>true</verbose>
+                    <packageName>com.gbsys.exotra.seguridad</packageName>
+                    <bindingDirectory>${project.basedir}/src/main/resources/wsdl/</bindingDirectory>
+                    <bindingFiles>
+                        <bindingFile>bindings.xjb</bindingFile>
+                    </bindingFiles>
+                    <wsdlDirectory>${project.basedir}/src/main/resources/wsdl/</wsdlDirectory>
+                    <wsdlFiles>
+                        <wsdlFile>WS_IngresoTramites.wsdl</wsdlFile>
+                    </wsdlFiles>
+                    <wsdlLocation>http://ws-declaraciones.curridabat.go.cr/WS_IngresoTramites.asmx?WSDL</wsdlLocation>
+                    <sourceDestDir>${project.build.directory}/generated-sources/exotra</sourceDestDir>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

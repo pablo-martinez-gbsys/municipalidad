@@ -1,0 +1,5 @@
+com\gbsys\exotra\constante\EstadoTarea.class
+com\gbsys\exotra\constante\EstadoTramite.class
+com\gbsys\exotra\entidad\QTarea.class
+com\gbsys\exotra\entidad\Tarea.class
+com\gbsys\exotra\entidad\EntidadBase.class

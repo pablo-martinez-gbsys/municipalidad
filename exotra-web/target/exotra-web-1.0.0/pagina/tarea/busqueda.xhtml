@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:se="http://gbsys.com/seguridad"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">
+        #{lbl['menu.tarea.busqueda']}
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="form_contenido">
+            <div class="ui-g ui-fluid">
+                <div class="ui-g-12">
+                    <div class="card card-w-title">
+                        <h1>Consulta Trámites</h1>
+                        <p:messages id="messages" closable="true">
+                            <p:autoUpdate/>
+                        </p:messages>
+                        <div class="ui-g">
+                            <div class="ui-g-12">
+                                <p:panelGrid id="pnl_filtro"
+                                             columns="6"
+                                             columnClasses="ui-grid-col-1,ui-grid-col-3,ui-grid-col-1,ui-grid-col-3,ui-grid-col-1,ui-grid-col-3"
+                                             layout="grid"
+                                             styleClass="ui-panelgrid-blank form-group form-elements">
+                                    <p:outputLabel value="#{lbl['etiqueta.busqueda.fecha_desde']}"
+                                                   for="fecha_desde"/>
+                                    <p:calendar id="fecha_desde"
+                                                value="#{beanBusqueda.tareaFiltro.fecDesde}"
+                                                pattern="#{lbl['patron.fecha']}" 
+                                                mask="true"
+                                                navigator="true">
+                                        <f:convertDateTime pattern="#{lbl['patron.fecha']}" />
+                                    </p:calendar>
+                                    <p:outputLabel value="#{lbl['etiqueta.busqueda.fecha_hasta']}"
+                                                   for="fecha_hasta"/>
+                                    <p:calendar id="fecha_hasta"
+                                                value="#{beanBusqueda.tareaFiltro.fecHasta}"
+                                                pattern="#{lbl['patron.fecha']}" 
+                                                mask="true"
+                                                navigator="true">
+                                        <f:convertDateTime pattern="#{lbl['patron.fecha']}" />
+                                    </p:calendar>
+                                    <p:outputLabel value="#{lbl['etiqueta.busqueda.estado']}"
+                                                   for="estado"/>
+                                    <p:selectOneMenu id="estado"
+                                                     value="#{beanBusqueda.tareaFiltro.estTarea}">
+                                        <f:selectItem itemLabel="#{lbl['etiqueta.seleccion']}"/>
+                                        <f:selectItems value="#{beanBusqueda.estados}"
+                                                       var="estado"
+                                                       itemValue="#{estado}"
+                                                       itemLabel="#{estado}"/>
+                                    </p:selectOneMenu>
+                                </p:panelGrid>
+                            </div>
+                        </div>
+                        <div class="ui-g">
+                            <div class="ui-g-12" style="text-align: center;">
+                                <p:commandButton id="buscar"
+                                                 value="#{lbl['boton.buscar']}"
+                                                 actionListener="#{beanBusqueda.buscar()}"
+                                                 icon="fa fa-search"
+                                                 style="max-width: 100px;"
+                                                 update="pnl_filtro tabla_tareas"
+                                                   class="button-consulta"
+                                                 />
+                                <p:spacer width="10"/>
+                                <p:commandButton id="limpiar"
+                                                 value="#{lbl['boton.limpiar']}"
+                                                 actionListener="#{beanBusqueda.limpiar()}"
+                                                 icon="fa fa-close"
+                                                 style="max-width: 100px;"
+                                                 process="@this"
+                                                 update="pnl_filtro tabla_tareas"
+                                                   class="button-consulta"
+                                                 >
+                                    <p:resetInput target="pnl_filtro"/>
+                                </p:commandButton>
+                            </div>
+                        </div>
+                        <div class="ui-g">
+                            <div class="ui-g-12">
+                                <p:dataTable id="tabla_tareas"
+                                             widgetVar="tabla_tareas"
+                                             value="#{beanBusqueda.tareas}"
+                                             var="tarea"
+                                             paginator="true"
+                                             rows="10"
+                                             lazy="true"
+                                             reflow="true"
+                                             paginatorPosition="bottom"
+                                             emptyMessage="#{lbl['tabla.vacia']}"
+                                             paginatorTemplate="#{lbl['datatable.paginador.patron']}"
+                                             currentPageReportTemplate="#{lbl['datatable.paginador.actual']}"
+                                             sortMode="multiple">
+                                    <p:column headerText="#{lbl['etiqueta.tarea.descripcion']}"
+                                              sortBy="#{tarea.t.dscTarea}" >
+                                        <h:outputText value="#{tarea.dscTarea}"/>
+                                    </p:column>
+                                    <p:column headerText="#{lbl['etiqueta.tarea.fecha']}"
+                                              sortBy="#{tarea.t.fecTarea}">
+                                        <h:outputText value="#{tarea.fecTarea}">
+                                            <f:convertDateTime pattern="#{lbl['patron.fecha_hora']}"/>
+                                        </h:outputText>
+                                    </p:column>
+                                    <p:column headerText="#{lbl['etiqueta.busqueda.estado']}"
+                                              sortBy="#{tarea.t.estTarea}">
+                                        <h:outputText value="#{tarea.estTarea}"/>
+                                    </p:column>
+                                </p:dataTable>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

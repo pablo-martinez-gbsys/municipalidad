@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jaxb:bindings
+    xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+    version="2.1">
+
+    <jaxb:globalBindings>
+        
+        <jaxb:serializable uid="1"/>
+
+        <jaxb:javaType name="java.util.Date" xmlType="xsd:dateTime" 
+                       parseMethod="com.gbsys.exotra.xsd.DateTimeConverter.parseDateTime" 
+                       printMethod="com.gbsys.exotra.xsd.DateTimeConverter.printDateTime"/>
+
+        <jaxb:javaType name="java.util.Date" xmlType="xsd:time" 
+                       parseMethod="com.gbsys.exotra.xsd.DateTimeConverter.parseTime" 
+                       printMethod="com.gbsys.exotra.xsd.DateTimeConverter.printTime"/>
+
+        <jaxb:javaType name="java.util.Date" xmlType="xsd:date" 
+                       parseMethod="com.gbsys.exotra.xsd.DateTimeConverter.parseDate" 
+                       printMethod="com.gbsys.exotra.xsd.DateTimeConverter.printDate"/> 
+
+    </jaxb:globalBindings>
+
+</jaxb:bindings>  

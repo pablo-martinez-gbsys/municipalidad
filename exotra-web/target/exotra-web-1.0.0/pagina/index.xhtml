@@ -1,0 +1,32 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">#{lbl['app.title']}</ui:define>
+
+    <ui:define name="content">
+        <h:form id="form_contenido">
+            <p:growl id="growl_notificacion" severity="info,warn" >
+                <p:autoUpdate/>
+            </p:growl>
+            <p:growl id="growl_error" severity="error,fatal" sticky="true" >
+                <p:autoUpdate/>
+            </p:growl>
+            <div class="ui-g">
+                <div class="ui-g-12">
+                    <div class="card">
+                        <h1>#{lbl['app.title']}</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum condimentum egestas. Integer ullamcorper sit amet elit ut tempor. Etiam fermentum quis turpis vel dignissim. Sed commodo suscipit ligula. Fusce eu condimentum velit. Sed congue lectus vitae massa blandit placerat eget at tortor. Nulla facilisi. Donec sodales vehicula nisl, vitae ornare enim suscipit eget. Etiam massa justo, condimentum laoreet iaculis sit amet, gravida nec elit. Etiam consequat sodales ligula sed gravida. Sed et mollis dolor, lobortis gravida metus. Nulla sit amet neque libero. Maecenas bibendum vulputate turpis vehicula semper.</p>
+                    </div>
+                </div>
+            </div>
+  
+            
+            
+        </h:form>
+    </ui:define>
+
+</ui:composition>

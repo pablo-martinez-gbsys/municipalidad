@@ -1,0 +1,6 @@
+com\gbsys\exotra\exception\ServicioException.class
+com\gbsys\exotra\servicio\ServicioBase.class
+com\gbsys\exotra\util\ServicioLogger.class
+com\gbsys\exotra\servicio\ServicioTarea.class
+com\gbsys\exotra\util\ServicioLoggerInterceptor.class
+com\gbsys\exotra\servicio\ServicioBase$1.class

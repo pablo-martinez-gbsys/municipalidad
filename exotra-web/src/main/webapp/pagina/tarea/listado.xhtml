@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:se="http://gbsys.com/seguridad"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">
+        #{lbl['menu.tarea.listado']}
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="form_contenido">
+            <p:focus context="@form"/>
+            <div class="ui-g ui-fluid">
+                <div class="ui-g-12">
+                    <div class="card card-w-title">
+                        <h1>#{lbl['etiqueta.tarea']}</h1>
+                        <p:messages id="messages" closable="true">
+                            <p:autoUpdate/>
+                        </p:messages>
+                        <p:panelGrid id="pnl_guardar"
+                                     columns="3"
+                                     columnClasses="ui-grid-col-2,ui-grid-col-8,ui-grid-col-2"
+                                     layout="grid"
+                                     styleClass="ui-panelgrid-blank form-group form-elements">
+                            <p:outputLabel value="#{lbl['etiqueta.tarea.descripcion']}"
+                                           for="dsc_tarea"/>
+                            <p:inputText id="dsc_tarea"
+                                         value="#{beanTarea.tarea.dscTarea}"/>
+                            <p:commandButton id="guardar"
+                                             value="#{lbl['boton.guardar']}"
+                                             actionListener="#{beanTarea.guardar()}"
+                                             icon="fa fa-save"
+                                             update="pnl_guardar tabla_pendientes"
+                                             rendered="#{se:verificarRecurso('GENERAL_TAREA_GUARDAR')}"
+                                             />
+                        </p:panelGrid>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="card card-w-title">
+                        <h1>#{lbl['etiqueta.tarea.pendientes']}</h1>
+                        <p:dataTable id="tabla_pendientes"
+                                     widgetVar="tabla_pendientes"
+                                     value="#{beanTarea.pendientes}"
+                                     var="pendiente"
+                                     paginator="true"
+                                     rows="5"
+                                     lazy="true"
+                                     reflow="true"
+                                     paginatorPosition="bottom"
+                                     emptyMessage="#{lbl['tabla.vacia']}"
+                                     paginatorTemplate="#{lbl['datatable.paginador.patron']}"
+                                     currentPageReportTemplate="#{lbl['datatable.paginador.actual']}">
+                            <p:column headerText="#{lbl['etiqueta.tarea.descripcion']}">
+                                <h:outputText value="#{pendiente.dscTarea}"/>
+                            </p:column>
+                            <p:column headerText="#{lbl['etiqueta.tarea.fecha']}">
+                                <h:outputText value="#{pendiente.fecTarea}">
+                                    <f:convertDateTime pattern="#{lbl['patron.fecha_hora']}"/>
+                                </h:outputText>
+                            </p:column>
+                            <p:column headerText="#{lbl['etiqueta.tarea.lista']}" width="30">
+                                <p:commandButton id="actualizar"
+                                                 icon="fa fa-check" 
+                                                 style="width: 30px;"
+                                                 actionListener="#{beanTarea.lista(pendiente.id)}"
+                                                 update=":form_contenido:tabla_pendientes :form_contenido:tabla_listas"
+                                                 process="@this"/>
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="card card-w-title">
+                        <h1>#{lbl['etiqueta.tarea.listas']}</h1>
+                        <p:dataTable id="tabla_listas"
+                                     widgetVar="tabla_listas"
+                                     value="#{beanTarea.listas}"
+                                     var="lista"
+                                     paginator="true"
+                                     rows="5"
+                                     lazy="true"
+                                     reflow="true"
+                                     paginatorPosition="bottom"
+                                     emptyMessage="#{lbl['tabla.vacia']}"
+                                     paginatorTemplate="#{lbl['datatable.paginador.patron']}"
+                                     currentPageReportTemplate="#{lbl['datatable.paginador.actual']}">
+                            <p:column headerText="#{lbl['etiqueta.tarea.descripcion']}">
+                                <h:outputText value="#{lista.dscTarea}"/>
+                            </p:column>
+                            <p:column headerText="#{lbl['etiqueta.tarea.fecha']}">
+                                <h:outputText value="#{lista.fecTarea}">
+                                    <f:convertDateTime pattern="#{lbl['patron.fecha_hora']}"/>
+                                </h:outputText>
+                            </p:column>
+                            <p:column headerText="#{lbl['etiqueta.tarea.borrar']}" width="30">
+                                <p:commandButton id="borrar"
+                                                 icon="fa fa-trash"
+                                                 style="width: 30px;"
+                                                 actionListener="#{beanTarea.borrar(lista.id)}"
+                                                 update=":form_contenido:tabla_listas"
+                                                 process="@this"/>
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

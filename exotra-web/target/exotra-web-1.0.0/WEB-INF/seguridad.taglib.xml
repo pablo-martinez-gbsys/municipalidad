@@ -1,0 +1,10 @@
+<facelet-taglib xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facelettaglibrary_2_0.xsd"
+                version="2.0" xmlns="http://java.sun.com/xml/ns/javaee">
+    <namespace>http://gbsys.com/seguridad</namespace>
+    <function>
+        <function-name>verificarRecurso</function-name>
+        <function-class>com.gbsys.exotra.util.session.AdminSession</function-class>
+        <function-signature>boolean verificarRecurso(java.lang.String)</function-signature>
+    </function>
+</facelet-taglib>

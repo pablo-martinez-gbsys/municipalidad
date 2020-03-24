@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:se="http://gbsys.com/seguridad"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">
+        #{lbl['etiqueta.exoneracion.titulo']}
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="form_contenido">
+            <div class="ui-g ui-fluid">
+                <div class="ui-g-12">
+                    <div class="card card-w-title">
+                        <h1>#{lbl['etiqueta.exoneracion.titulo']}</h1>
+                        <p:messages id="messages" closable="true">
+                            <p:autoUpdate/>
+                        </p:messages>
+                        <p:fieldset legend="#{lbl['etiqueta.exoneracion.panel.informacion']}" style="margin-bottom:20px">
+                            <div class="ui-g">
+                                <div class="ui-g-12">
+                                    <p:panelGrid id="pnl_filtro"
+                                                 columns="6"
+                                                 columnClasses="ui-grid-col-1,ui-grid-col-3,ui-grid-col-1,ui-grid-col-3,ui-grid-col-1,ui-grid-col-3"
+                                                 layout="grid"
+                                                 styleClass="ui-panelgrid-blank form-group form-elements">
+                                        <p:outputLabel value="#{lbl['etiqueta.exoneracion.numero_tramite']}"
+                                                       for="fecha_desde"/>
+                                        <p:inputText id="fecha_desde"
+                                                     value="#{beanExoneracion.exoneracionModelo.idTipoTramite}" />
+
+                                        <p:outputLabel value="#{lbl['etiqueta.exoneracion.nombre_solicitante']}"
+                                                       for="fecha_hasta"/>
+                                        <p:inputText id="fecha_hasta"
+                                                     value="#{beanExoneracion.exoneracionModelo.nombreCompleto}"/>
+
+
+                                        <p:outputLabel value="#{lbl['etiqueta.busqueda.estado']}"
+                                                       for="estado"/>
+                                        <p:selectOneMenu id="estado"
+                                                         value="#{beanBusqueda.tareaFiltro.estTarea}">
+                                            <f:selectItem itemLabel="#{lbl['etiqueta.seleccion']}"/>
+                                            <f:selectItems value="#{beanBusqueda.estados}"
+                                                           var="estado"
+                                                           itemValue="#{estado}"
+                                                           itemLabel="#{estado}"/>
+                                        </p:selectOneMenu>
+
+                                        <p:outputLabel value="#{lbl['etiqueta.exoneracion.cedula_solicitante']}"
+                                                       for="cedula"/>
+                                        <p:inputText id="cedula"
+                                                     value="#{beanExoneracion.exoneracionModelo.identificacion}"/>
+
+                                        <p:outputLabel value="#{lbl['etiqueta.exoneracion.correo_solicitante']}"
+                                                       for="correo"/>
+                                        <p:inputText id="correo"
+                                                     value="#{beanExoneracion.exoneracionModelo.correo}"/>
+
+                                        <p:outputLabel value="#{lbl['etiqueta.exoneracion.telefono_solicitante']}"
+                                                       for="telefono"/>
+                                        <p:inputText id="telefono"
+                                                     value="#{beanExoneracion.exoneracionModelo.telefono}"/>
+
+
+                                    </p:panelGrid>
+                                </div>
+                            </div>
+
+                            <div class="ui-g">
+                                <div class="ui-g-12">
+                                    <!--                                <p:dataTable id="tabla_tareas"
+                                                                                 widgetVar="tabla_tareas"
+                                                                                 value="#{beanBusqueda.tareas}"
+                                                                                 var="tarea"
+                                                                                 paginator="true"
+                                                                                 rows="10"
+                                                                                 lazy="true"
+                                                                                 reflow="true"
+                                                                                 paginatorPosition="bottom"
+                                                                                 emptyMessage="#{lbl['tabla.vacia']}"
+                                                                                 paginatorTemplate="#{lbl['datatable.paginador.patron']}"
+                                                                                 currentPageReportTemplate="#{lbl['datatable.paginador.actual']}"
+                                                                                 sortMode="multiple">
+                                                                        <p:column headerText="#{lbl['etiqueta.tarea.descripcion']}"
+                                                                                  sortBy="#{tarea.t.dscTarea}" >
+                                                                            <h:outputText value="#{tarea.dscTarea}"/>
+                                                                        </p:column>
+                                                                        <p:column headerText="#{lbl['etiqueta.tarea.fecha']}"
+                                                                                  sortBy="#{tarea.t.fecTarea}">
+                                                                            <h:outputText value="#{tarea.fecTarea}">
+                                                                                <f:convertDateTime pattern="#{lbl['patron.fecha_hora']}"/>
+                                                                            </h:outputText>
+                                                                        </p:column>
+                                                                        <p:column headerText="#{lbl['etiqueta.busqueda.estado']}"
+                                                                                  sortBy="#{tarea.t.estTarea}">
+                                                                            <h:outputText value="#{tarea.estTarea}"/>
+                                                                        </p:column>
+                                                                    </p:dataTable>-->
+                                </div>
+                            </div>
+                        </p:fieldset>
+                    </div>
+
+                    <div class="card card-w-title">
+                        <div class="ui-g">
+                            <div class="ui-g-12">
+                                <p:fieldset legend="#{lbl['etiqueta.exoneracion.datos_registrales']}" style="margin-bottom:20px">
+                                    <p:panelGrid id="pnl_filtro2"
+                                                 columns="6"
+                                                 columnClasses="ui-grid-col-1,ui-grid-col-3,ui-grid-col-1,ui-grid-col-3,ui-grid-col-1,ui-grid-col-3"
+                                                 layout="grid"
+                                                 styleClass="ui-panelgrid-blank form-group form-elements">
+                                        <p:outputLabel value="#{lbl['etiqueta.exoneracion.numero_folio']}"
+                                                       for="Numerofolio"/>
+                                        <p:inputText id="Numerofolio"
+                                                     value="#{beanExoneracion.exoneracionModelo.numeroFolio}" />
+
+                                        <p:outputLabel value="#{lbl['etiqueta.exoneracion.nombre_solicitante']}"
+                                                       for="nomSolicitante2"/>
+                                        <p:inputText id="nomSolicitante2"
+                                                     value="#{beanExoneracion.exoneracionModelo.nombreCompleto}"/>
+
+
+                                        <p:outputLabel value="#{lbl['etiqueta.exoneracion.cedula_solicitante']}"
+                                                       for="numeroCedula2"/>
+                                        <p:inputText id="numeroCedula2"
+                                                     value="#{beanExoneracion.exoneracionModelo.identificacion}"/>
+
+                                        <p:outputLabel value="#{lbl['etiqueta.exoneracion.direccion_propiedad']}"
+                                                       for="direccionPropiedad"/>
+                                        <p:inputTextarea id="direccionPropiedad"
+                                                         value="#{beanExoneracion.exoneracionModelo.direccionPropiedad}"/>
+
+                                        <p:outputLabel value="#{lbl['etiqueta.exoneracion.correo_solicitante']}"
+                                                       for="correo2"/>
+                                        <p:inputText id="correo2"
+                                                     value="#{beanExoneracion.exoneracionModelo.correo}"/>
+
+                                        <p:outputLabel value="#{lbl['etiqueta.exoneracion.telefono_solicitante']}"
+                                                       for="telefono2"/>
+                                        <p:inputText id="telefono2"
+                                                     value="#{beanExoneracion.exoneracionModelo.telefono}"/>
+
+
+                                    </p:panelGrid>
+                                </p:fieldset>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="card card-w-title">
+                        <div class="ui-g">
+                            <div class="ui-g-12">
+                                <p:fieldset legend="#{lbl['etiqueta.exoneracion.declaracion_jurada']}" style="margin-bottom:20px">
+
+                                    <p> #{lbl['etiqueta.exoneracion.suscrito']}<strong><p:outputLabel value="#{beanExoneracion.exoneracionModelo.nombreCompleto}" for="cedula"/></strong> #{lbl['etiqueta.exoneracion.suscrito_cedula']} <strong><p:outputLabel value="#{beanExoneracion.exoneracionModelo.identificacion}" for="cedula"/></strong></p>
+                                    <p>#{lbl['etiqueta.exoneracion.juramento']}</p>    
+                                </p:fieldset>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="card card-w-title">
+                        <div class="ui-g">
+                            <div class="ui-g-12">
+                                <p:fieldset legend="#{lbl['etiqueta.exoneracion.requisitos']}" style="margin-bottom:20px">
+
+<!--                                    <p:selectManyCheckbox id="basic" layout="pageDirection" columns="1" value="#{beanExoneracion.exoneracionModelo.requisitos}">
+                                        <f:selectItem itemLabel="#{lbl['etiqueta.exoneracion.requisito.unica_propiedad']}" itemValue="1" />
+                                        <f:selectItem itemLabel="#{lbl['etiqueta.exoneracion.requisito.localizacion']}" itemValue="2" />
+                                        <f:selectItem itemLabel="#{lbl['etiqueta.exoneracion.requisito.certificacion']}" itemValue="3" />
+                                        <f:selectItem itemLabel="#{lbl['etiqueta.exoneracion.requisito.obligaciones']}" itemValue="4" />
+                                    </p:selectManyCheckbox>-->
+                                    <p:panelGrid id="pnl_filtro3"
+                                                 columns="12"
+                                                 columnClasses="ui-grid-col-1,ui-grid-col-3,ui-grid-col-1,ui-grid-col-3,ui-grid-col-1,ui-grid-col-3"
+                                                 layout="grid"
+                                                 styleClass="ui-panelgrid-blank form-group form-elements">
+                                        <p:outputLabel value="#{lbl['etiqueta.exoneracion.requisito.observaciones']}"
+                                                       for="observaciones"/>
+                                        <p:inputTextarea id="observaciones"
+                                                         value="#{beanExoneracion.exoneracionModelo.observacion}"/>
+
+                                                       
+                                                    <p:fileUpload id="documento_grafico"
+                                                      fileUploadListener="#{beanBusqueda.tareaFiltro.fecHasta}"
+                                                      mode="simple"
+                                                      label="#{lbl['etiqueta.exoneracion.requisito.archivos']}"
+                                                      skinSimple="true"
+                                                      auto="true"  
+                                                    
+
+                                                      invalidFileMessage="error"/>
+                                    </p:panelGrid>  
+                           
+                               
+
+                                </p:fieldset>  
+
+                            </div>
+
+                        </div>
+                        <div class="ui-g">
+                            <div class="ui-g-12" style="text-align: center;">
+                                <p:commandButton id="buscar"
+                                                class="button-consulta"
+                                                 value="#{lbl['boton.enviar']}"
+                                                 actionListener="#{beanExoneracion.crearTramite()}"
+
+                                                 style="max-width: 200px;"
+
+
+                                                 />
+                                <p:spacer width="10"/>
+                                <!--                                <p:commandButton id="limpiar"
+                                                                                 value="#{lbl['boton.limpiar']}"
+                                                                                 actionListener="#{beanBusqueda.limpiar()}"
+                                                                                   class="button-default"
+                                                                                 icon="fa fa-close"
+                                                                                 style="max-width: 100px;"
+                                                                                 process="@this"
+                                                                                 update="pnl_filtro tabla_tareas"
+                                                                                 rendered="#{se:verificarRecurso('GENERAL_BUSCAR_LIMPIAR')}"
+                                                                                 >
+                                                                    <p:resetInput target="pnl_filtro"/>
+                                                                </p:commandButton>-->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://ws-declaraciones.curridabat.go.cr/WS_IngresoTramites.asmx?WSDL" uri="wsdl/ws-declaraciones.curridabat.go.cr/WS_IngresoTramites.asmx.wsdl"/>
+</catalog>

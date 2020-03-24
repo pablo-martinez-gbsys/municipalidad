@@ -1,0 +1,58 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pe="http://primefaces.org/ui/extensions"
+    xmlns:pa="http://primefaces.org/paradise">
+
+    <div class="topbar">
+        <h:link outcome="/pagina/index" styleClass="topbar-logo">
+<!--            <p:graphicImage name="titulo.png" library="img" style="border: 0px;" />-->
+            <h1 class="username" >#{lbl['app.menu.title']}</h1>
+              
+        </h:link>
+
+<!--        <a href="#" id="menu-button">
+            <i class="fa fa-bars"></i>
+        </a>-->
+  
+        <a href="#" id="user-display">
+             <p:graphicImage name="logo_escudo2.png" library="img" style="border: 0px;" />
+            <span class="username">#{user.fullname}</span>
+<!--            <pe:gravatar id="gravatar"
+                         value="#{user.email}"
+                         size="40"
+                         notFound="mm"
+                         style="border: 0px; border-radius: 50%;"/>-->
+            <i class="fa fa-angle-down"></i>
+        </a>
+  
+        <h:form id="form_topbar">
+            <ul id="topbar-menu" class="fadeInDown animated">
+                <li>
+                    <a href="#">
+                        <i class="topbar-icon fa fa-fw fa-question"></i>
+                        <span class="topbar-item-name">#{lbl['menu.ayuda']}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="topbar-icon fa fa-fw fa-cog"></i>
+                        <span class="topbar-item-name">#{lbl['menu.config']}</span>
+                    </a>
+                </li>
+                <li>
+                    <p:commandLink id="logout" actionListener="#{beanLogout.logout()}">
+                        <i class="topbar-icon fa fa-fw fa-sign-out"></i>
+                        <span>#{lbl['menu.salir']}</span>
+                    </p:commandLink>
+                </li>
+            </ul>
+         
+        </h:form>
+
+    </div>  
+      
+</ui:composition>

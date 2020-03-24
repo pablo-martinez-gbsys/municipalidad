@@ -1,0 +1,6 @@
+com\gbsys\exotra\cliente\seguridad\ModeloAutenticacion.class
+com\gbsys\exotra\cliente\seguridad\Seguridad.class
+com\gbsys\exotra\cliente\seguridad\MensajeError.class
+com\gbsys\exotra\cliente\seguridad\SeguridadClienteException.class
+com\gbsys\exotra\cliente\seguridad\ModeloUsuarioExterno.class
+com\gbsys\exotra\cliente\seguridad\ClienteSeguridad.class

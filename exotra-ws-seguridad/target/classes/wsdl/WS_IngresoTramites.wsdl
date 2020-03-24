@@ -1,0 +1,906 @@
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s1="http://tempuri.org/AbstractTypes" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://tempuri.org/">
+<wsdl:types>
+<s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+<s:element name="ingresoUsuario">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="primerApellido" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="segundoApellido" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="telefonoCelular" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="telefonoCasa" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="telefonoTrabajo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="fax" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="correoElectronico" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="direccion" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="identificacion" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="tipoCedula" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="ingresoUsuarioResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ingresoUsuarioResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="crearTramite">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="Id_Tipo_Tramite" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="Tramite_Oficio" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="Id_Modulo" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="Id_Municipal" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="Fec_Recepcion_Documentos" type="s:dateTime"/>
+<s:element minOccurs="1" maxOccurs="1" name="Estado_Tramite" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="Tramite_Interno" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="ID_Tramite_Padre" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="Ind_Subio_Documentos" type="s:boolean"/>
+<s:element minOccurs="0" maxOccurs="1" name="Observacion" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Numero_Tramite" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="identificacion" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="userInterno" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="passInterno" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="ingresar2020" type="s:boolean"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="crearTramiteResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="crearTramiteResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="loginTramitesWeb">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="identificacion" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="loginTramitesWebResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="loginTramitesWebResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="validacionUsuarioLogueado">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="userInterno" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="passInterno" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Identificacion" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="validacionUsuarioLogueadoResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="validacionUsuarioLogueadoResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="catalogoTiposTramites">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="userInterno" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="passInterno" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="catalogoTiposTramitesResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="catalogoTiposTramitesResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="catalogoRequisitosTipoTramite">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="userInterno" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="passInterno" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="tipoTramite" type="s:int"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="catalogoRequisitosTipoTramiteResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="catalogoRequisitosTipoTramiteResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="propiedadesIdentificacion">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="userInterno" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="passInterno" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="identificacion" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="propiedadesIdentificacionResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="propiedadesIdentificacionResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="insercionDocumentos">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="userInterno" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="passInterno" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="idCarpeta" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="documento" type="s:base64Binary"/>
+<s:element minOccurs="0" maxOccurs="1" name="numeroTramite" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="extencion" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="insercionDocumentosResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="insercionDocumentosResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="consultaTramites">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="userInterno" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="passInterno" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="identificacion" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="idDetalleEstado" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="fechaInicio" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="fechaFinal" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="numTramite" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="consultaTramitesResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="consultaTramitesResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="string" nillable="true" type="s:string"/>
+</s:schema>
+<s:schema targetNamespace="http://tempuri.org/AbstractTypes">
+<s:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+<!--<s:complexType name="StringArray">
+<s:complexContent mixed="false">
+<s:restriction base="soapenc:Array">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string"/>
+</s:sequence>
+</s:restriction>
+</s:complexContent>
+</s:complexType>-->
+</s:schema>
+</wsdl:types>
+<wsdl:message name="ingresoUsuarioSoapIn">
+<wsdl:part name="parameters" element="tns:ingresoUsuario"/>
+</wsdl:message>
+<wsdl:message name="ingresoUsuarioSoapOut">
+<wsdl:part name="parameters" element="tns:ingresoUsuarioResponse"/>
+</wsdl:message>
+<wsdl:message name="crearTramiteSoapIn">
+<wsdl:part name="parameters" element="tns:crearTramite"/>
+</wsdl:message>
+<wsdl:message name="crearTramiteSoapOut">
+<wsdl:part name="parameters" element="tns:crearTramiteResponse"/>
+</wsdl:message>
+<wsdl:message name="loginTramitesWebSoapIn">
+<wsdl:part name="parameters" element="tns:loginTramitesWeb"/>
+</wsdl:message>
+<wsdl:message name="loginTramitesWebSoapOut">
+<wsdl:part name="parameters" element="tns:loginTramitesWebResponse"/>
+</wsdl:message>
+<wsdl:message name="validacionUsuarioLogueadoSoapIn">
+<wsdl:part name="parameters" element="tns:validacionUsuarioLogueado"/>
+</wsdl:message>
+<wsdl:message name="validacionUsuarioLogueadoSoapOut">
+<wsdl:part name="parameters" element="tns:validacionUsuarioLogueadoResponse"/>
+</wsdl:message>
+<wsdl:message name="catalogoTiposTramitesSoapIn">
+<wsdl:part name="parameters" element="tns:catalogoTiposTramites"/>
+</wsdl:message>
+<wsdl:message name="catalogoTiposTramitesSoapOut">
+<wsdl:part name="parameters" element="tns:catalogoTiposTramitesResponse"/>
+</wsdl:message>
+<wsdl:message name="catalogoRequisitosTipoTramiteSoapIn">
+<wsdl:part name="parameters" element="tns:catalogoRequisitosTipoTramite"/>
+</wsdl:message>
+<wsdl:message name="catalogoRequisitosTipoTramiteSoapOut">
+<wsdl:part name="parameters" element="tns:catalogoRequisitosTipoTramiteResponse"/>
+</wsdl:message>
+<wsdl:message name="propiedadesIdentificacionSoapIn">
+<wsdl:part name="parameters" element="tns:propiedadesIdentificacion"/>
+</wsdl:message>
+<wsdl:message name="propiedadesIdentificacionSoapOut">
+<wsdl:part name="parameters" element="tns:propiedadesIdentificacionResponse"/>
+</wsdl:message>
+<wsdl:message name="insercionDocumentosSoapIn">
+<wsdl:part name="parameters" element="tns:insercionDocumentos"/>
+</wsdl:message>
+<wsdl:message name="insercionDocumentosSoapOut">
+<wsdl:part name="parameters" element="tns:insercionDocumentosResponse"/>
+</wsdl:message>
+<wsdl:message name="consultaTramitesSoapIn">
+<wsdl:part name="parameters" element="tns:consultaTramites"/>
+</wsdl:message>
+<wsdl:message name="consultaTramitesSoapOut">
+<wsdl:part name="parameters" element="tns:consultaTramitesResponse"/>
+</wsdl:message>
+<wsdl:message name="ingresoUsuarioHttpGetIn">
+<wsdl:part name="nombre" type="s:string"/>
+<wsdl:part name="primerApellido" type="s:string"/>
+<wsdl:part name="segundoApellido" type="s:string"/>
+<wsdl:part name="telefonoCelular" type="s:string"/>
+<wsdl:part name="telefonoCasa" type="s:string"/>
+<wsdl:part name="telefonoTrabajo" type="s:string"/>
+<wsdl:part name="fax" type="s:string"/>
+<wsdl:part name="correoElectronico" type="s:string"/>
+<wsdl:part name="direccion" type="s:string"/>
+<wsdl:part name="identificacion" type="s:string"/>
+<wsdl:part name="tipoCedula" type="s:string"/>
+<wsdl:part name="pass" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="ingresoUsuarioHttpGetOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="crearTramiteHttpGetIn">
+<wsdl:part name="Id_Tipo_Tramite" type="s:string"/>
+<wsdl:part name="Tramite_Oficio" type="s:string"/>
+<wsdl:part name="Id_Modulo" type="s:string"/>
+<wsdl:part name="Id_Municipal" type="s:string"/>
+<wsdl:part name="Fec_Recepcion_Documentos" type="s:string"/>
+<wsdl:part name="Estado_Tramite" type="s:string"/>
+<wsdl:part name="Tramite_Interno" type="s:string"/>
+<wsdl:part name="ID_Tramite_Padre" type="s:string"/>
+<wsdl:part name="Ind_Subio_Documentos" type="s:string"/>
+<wsdl:part name="Observacion" type="s:string"/>
+<wsdl:part name="Numero_Tramite" type="s:string"/>
+<wsdl:part name="Usuario" type="s:string"/>
+<wsdl:part name="identificacion" type="s:string"/>
+<wsdl:part name="userInterno" type="s:string"/>
+<wsdl:part name="passInterno" type="s:string"/>
+<wsdl:part name="ingresar2020" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="crearTramiteHttpGetOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="loginTramitesWebHttpGetIn">
+<wsdl:part name="identificacion" type="s:string"/>
+<wsdl:part name="pass" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="loginTramitesWebHttpGetOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="validacionUsuarioLogueadoHttpGetIn">
+<wsdl:part name="userInterno" type="s:string"/>
+<wsdl:part name="passInterno" type="s:string"/>
+<wsdl:part name="Identificacion" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="validacionUsuarioLogueadoHttpGetOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="catalogoTiposTramitesHttpGetIn">
+<wsdl:part name="userInterno" type="s:string"/>
+<wsdl:part name="passInterno" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="catalogoTiposTramitesHttpGetOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="catalogoRequisitosTipoTramiteHttpGetIn">
+<wsdl:part name="userInterno" type="s:string"/>
+<wsdl:part name="passInterno" type="s:string"/>
+<wsdl:part name="tipoTramite" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="catalogoRequisitosTipoTramiteHttpGetOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="propiedadesIdentificacionHttpGetIn">
+<wsdl:part name="userInterno" type="s:string"/>
+<wsdl:part name="passInterno" type="s:string"/>
+<wsdl:part name="identificacion" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="propiedadesIdentificacionHttpGetOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="insercionDocumentosHttpGetIn">
+<wsdl:part name="userInterno" type="s:string"/>
+<wsdl:part name="passInterno" type="s:string"/>
+<wsdl:part name="idCarpeta" type="s:string"/>
+<wsdl:part name="documento" type="s1:StringArray"/>
+<wsdl:part name="numeroTramite" type="s:string"/>
+<wsdl:part name="extencion" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="insercionDocumentosHttpGetOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="consultaTramitesHttpGetIn">
+<wsdl:part name="userInterno" type="s:string"/>
+<wsdl:part name="passInterno" type="s:string"/>
+<wsdl:part name="identificacion" type="s:string"/>
+<wsdl:part name="idDetalleEstado" type="s:string"/>
+<wsdl:part name="fechaInicio" type="s:string"/>
+<wsdl:part name="fechaFinal" type="s:string"/>
+<wsdl:part name="numTramite" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="consultaTramitesHttpGetOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="ingresoUsuarioHttpPostIn">
+<wsdl:part name="nombre" type="s:string"/>
+<wsdl:part name="primerApellido" type="s:string"/>
+<wsdl:part name="segundoApellido" type="s:string"/>
+<wsdl:part name="telefonoCelular" type="s:string"/>
+<wsdl:part name="telefonoCasa" type="s:string"/>
+<wsdl:part name="telefonoTrabajo" type="s:string"/>
+<wsdl:part name="fax" type="s:string"/>
+<wsdl:part name="correoElectronico" type="s:string"/>
+<wsdl:part name="direccion" type="s:string"/>
+<wsdl:part name="identificacion" type="s:string"/>
+<wsdl:part name="tipoCedula" type="s:string"/>
+<wsdl:part name="pass" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="ingresoUsuarioHttpPostOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="crearTramiteHttpPostIn">
+<wsdl:part name="Id_Tipo_Tramite" type="s:string"/>
+<wsdl:part name="Tramite_Oficio" type="s:string"/>
+<wsdl:part name="Id_Modulo" type="s:string"/>
+<wsdl:part name="Id_Municipal" type="s:string"/>
+<wsdl:part name="Fec_Recepcion_Documentos" type="s:string"/>
+<wsdl:part name="Estado_Tramite" type="s:string"/>
+<wsdl:part name="Tramite_Interno" type="s:string"/>
+<wsdl:part name="ID_Tramite_Padre" type="s:string"/>
+<wsdl:part name="Ind_Subio_Documentos" type="s:string"/>
+<wsdl:part name="Observacion" type="s:string"/>
+<wsdl:part name="Numero_Tramite" type="s:string"/>
+<wsdl:part name="Usuario" type="s:string"/>
+<wsdl:part name="identificacion" type="s:string"/>
+<wsdl:part name="userInterno" type="s:string"/>
+<wsdl:part name="passInterno" type="s:string"/>
+<wsdl:part name="ingresar2020" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="crearTramiteHttpPostOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="loginTramitesWebHttpPostIn">
+<wsdl:part name="identificacion" type="s:string"/>
+<wsdl:part name="pass" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="loginTramitesWebHttpPostOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="validacionUsuarioLogueadoHttpPostIn">
+<wsdl:part name="userInterno" type="s:string"/>
+<wsdl:part name="passInterno" type="s:string"/>
+<wsdl:part name="Identificacion" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="validacionUsuarioLogueadoHttpPostOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="catalogoTiposTramitesHttpPostIn">
+<wsdl:part name="userInterno" type="s:string"/>
+<wsdl:part name="passInterno" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="catalogoTiposTramitesHttpPostOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="catalogoRequisitosTipoTramiteHttpPostIn">
+<wsdl:part name="userInterno" type="s:string"/>
+<wsdl:part name="passInterno" type="s:string"/>
+<wsdl:part name="tipoTramite" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="catalogoRequisitosTipoTramiteHttpPostOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="propiedadesIdentificacionHttpPostIn">
+<wsdl:part name="userInterno" type="s:string"/>
+<wsdl:part name="passInterno" type="s:string"/>
+<wsdl:part name="identificacion" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="propiedadesIdentificacionHttpPostOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="insercionDocumentosHttpPostIn">
+<wsdl:part name="userInterno" type="s:string"/>
+<wsdl:part name="passInterno" type="s:string"/>
+<wsdl:part name="idCarpeta" type="s:string"/>
+<wsdl:part name="documento" type="s1:StringArray"/>
+<wsdl:part name="numeroTramite" type="s:string"/>
+<wsdl:part name="extencion" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="insercionDocumentosHttpPostOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:message name="consultaTramitesHttpPostIn">
+<wsdl:part name="userInterno" type="s:string"/>
+<wsdl:part name="passInterno" type="s:string"/>
+<wsdl:part name="identificacion" type="s:string"/>
+<wsdl:part name="idDetalleEstado" type="s:string"/>
+<wsdl:part name="fechaInicio" type="s:string"/>
+<wsdl:part name="fechaFinal" type="s:string"/>
+<wsdl:part name="numTramite" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="consultaTramitesHttpPostOut">
+<wsdl:part name="Body" element="tns:string"/>
+</wsdl:message>
+<wsdl:portType name="WS_IngresoTramitesSoap">
+<wsdl:operation name="ingresoUsuario">
+<wsdl:input message="tns:ingresoUsuarioSoapIn"/>
+<wsdl:output message="tns:ingresoUsuarioSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="crearTramite">
+<wsdl:input message="tns:crearTramiteSoapIn"/>
+<wsdl:output message="tns:crearTramiteSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="loginTramitesWeb">
+<wsdl:input message="tns:loginTramitesWebSoapIn"/>
+<wsdl:output message="tns:loginTramitesWebSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="validacionUsuarioLogueado">
+<wsdl:input message="tns:validacionUsuarioLogueadoSoapIn"/>
+<wsdl:output message="tns:validacionUsuarioLogueadoSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="catalogoTiposTramites">
+<wsdl:input message="tns:catalogoTiposTramitesSoapIn"/>
+<wsdl:output message="tns:catalogoTiposTramitesSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="catalogoRequisitosTipoTramite">
+<wsdl:input message="tns:catalogoRequisitosTipoTramiteSoapIn"/>
+<wsdl:output message="tns:catalogoRequisitosTipoTramiteSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="propiedadesIdentificacion">
+<wsdl:input message="tns:propiedadesIdentificacionSoapIn"/>
+<wsdl:output message="tns:propiedadesIdentificacionSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="insercionDocumentos">
+<wsdl:input message="tns:insercionDocumentosSoapIn"/>
+<wsdl:output message="tns:insercionDocumentosSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="consultaTramites">
+<wsdl:input message="tns:consultaTramitesSoapIn"/>
+<wsdl:output message="tns:consultaTramitesSoapOut"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:portType name="WS_IngresoTramitesHttpGet">
+<wsdl:operation name="ingresoUsuario">
+<wsdl:input message="tns:ingresoUsuarioHttpGetIn"/>
+<wsdl:output message="tns:ingresoUsuarioHttpGetOut"/>
+</wsdl:operation>
+<wsdl:operation name="crearTramite">
+<wsdl:input message="tns:crearTramiteHttpGetIn"/>
+<wsdl:output message="tns:crearTramiteHttpGetOut"/>
+</wsdl:operation>
+<wsdl:operation name="loginTramitesWeb">
+<wsdl:input message="tns:loginTramitesWebHttpGetIn"/>
+<wsdl:output message="tns:loginTramitesWebHttpGetOut"/>
+</wsdl:operation>
+<wsdl:operation name="validacionUsuarioLogueado">
+<wsdl:input message="tns:validacionUsuarioLogueadoHttpGetIn"/>
+<wsdl:output message="tns:validacionUsuarioLogueadoHttpGetOut"/>
+</wsdl:operation>
+<wsdl:operation name="catalogoTiposTramites">
+<wsdl:input message="tns:catalogoTiposTramitesHttpGetIn"/>
+<wsdl:output message="tns:catalogoTiposTramitesHttpGetOut"/>
+</wsdl:operation>
+<wsdl:operation name="catalogoRequisitosTipoTramite">
+<wsdl:input message="tns:catalogoRequisitosTipoTramiteHttpGetIn"/>
+<wsdl:output message="tns:catalogoRequisitosTipoTramiteHttpGetOut"/>
+</wsdl:operation>
+<wsdl:operation name="propiedadesIdentificacion">
+<wsdl:input message="tns:propiedadesIdentificacionHttpGetIn"/>
+<wsdl:output message="tns:propiedadesIdentificacionHttpGetOut"/>
+</wsdl:operation>
+<wsdl:operation name="insercionDocumentos">
+<wsdl:input message="tns:insercionDocumentosHttpGetIn"/>
+<wsdl:output message="tns:insercionDocumentosHttpGetOut"/>
+</wsdl:operation>
+<wsdl:operation name="consultaTramites">
+<wsdl:input message="tns:consultaTramitesHttpGetIn"/>
+<wsdl:output message="tns:consultaTramitesHttpGetOut"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:portType name="WS_IngresoTramitesHttpPost">
+<wsdl:operation name="ingresoUsuario">
+<wsdl:input message="tns:ingresoUsuarioHttpPostIn"/>
+<wsdl:output message="tns:ingresoUsuarioHttpPostOut"/>
+</wsdl:operation>
+<wsdl:operation name="crearTramite">
+<wsdl:input message="tns:crearTramiteHttpPostIn"/>
+<wsdl:output message="tns:crearTramiteHttpPostOut"/>
+</wsdl:operation>
+<wsdl:operation name="loginTramitesWeb">
+<wsdl:input message="tns:loginTramitesWebHttpPostIn"/>
+<wsdl:output message="tns:loginTramitesWebHttpPostOut"/>
+</wsdl:operation>
+<wsdl:operation name="validacionUsuarioLogueado">
+<wsdl:input message="tns:validacionUsuarioLogueadoHttpPostIn"/>
+<wsdl:output message="tns:validacionUsuarioLogueadoHttpPostOut"/>
+</wsdl:operation>
+<wsdl:operation name="catalogoTiposTramites">
+<wsdl:input message="tns:catalogoTiposTramitesHttpPostIn"/>
+<wsdl:output message="tns:catalogoTiposTramitesHttpPostOut"/>
+</wsdl:operation>
+<wsdl:operation name="catalogoRequisitosTipoTramite">
+<wsdl:input message="tns:catalogoRequisitosTipoTramiteHttpPostIn"/>
+<wsdl:output message="tns:catalogoRequisitosTipoTramiteHttpPostOut"/>
+</wsdl:operation>
+<wsdl:operation name="propiedadesIdentificacion">
+<wsdl:input message="tns:propiedadesIdentificacionHttpPostIn"/>
+<wsdl:output message="tns:propiedadesIdentificacionHttpPostOut"/>
+</wsdl:operation>
+<wsdl:operation name="insercionDocumentos">
+<wsdl:input message="tns:insercionDocumentosHttpPostIn"/>
+<wsdl:output message="tns:insercionDocumentosHttpPostOut"/>
+</wsdl:operation>
+<wsdl:operation name="consultaTramites">
+<wsdl:input message="tns:consultaTramitesHttpPostIn"/>
+<wsdl:output message="tns:consultaTramitesHttpPostOut"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="WS_IngresoTramitesSoap" type="tns:WS_IngresoTramitesSoap">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="ingresoUsuario">
+<soap:operation soapAction="http://tempuri.org/ingresoUsuario" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="crearTramite">
+<soap:operation soapAction="http://tempuri.org/crearTramite" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="loginTramitesWeb">
+<soap:operation soapAction="http://tempuri.org/loginTramitesWeb" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="validacionUsuarioLogueado">
+<soap:operation soapAction="http://tempuri.org/validacionUsuarioLogueado" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="catalogoTiposTramites">
+<soap:operation soapAction="http://tempuri.org/catalogoTiposTramites" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="catalogoRequisitosTipoTramite">
+<soap:operation soapAction="http://tempuri.org/catalogoRequisitosTipoTramite" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="propiedadesIdentificacion">
+<soap:operation soapAction="http://tempuri.org/propiedadesIdentificacion" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="insercionDocumentos">
+<soap:operation soapAction="http://tempuri.org/insercionDocumentos" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="consultaTramites">
+<soap:operation soapAction="http://tempuri.org/consultaTramites" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="WS_IngresoTramitesSoap12" type="tns:WS_IngresoTramitesSoap">
+<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="ingresoUsuario">
+<soap12:operation soapAction="http://tempuri.org/ingresoUsuario" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="crearTramite">
+<soap12:operation soapAction="http://tempuri.org/crearTramite" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="loginTramitesWeb">
+<soap12:operation soapAction="http://tempuri.org/loginTramitesWeb" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="validacionUsuarioLogueado">
+<soap12:operation soapAction="http://tempuri.org/validacionUsuarioLogueado" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="catalogoTiposTramites">
+<soap12:operation soapAction="http://tempuri.org/catalogoTiposTramites" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="catalogoRequisitosTipoTramite">
+<soap12:operation soapAction="http://tempuri.org/catalogoRequisitosTipoTramite" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="propiedadesIdentificacion">
+<soap12:operation soapAction="http://tempuri.org/propiedadesIdentificacion" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="insercionDocumentos">
+<soap12:operation soapAction="http://tempuri.org/insercionDocumentos" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="consultaTramites">
+<soap12:operation soapAction="http://tempuri.org/consultaTramites" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="WS_IngresoTramitesHttpGet" type="tns:WS_IngresoTramitesHttpGet">
+<http:binding verb="GET"/>
+<wsdl:operation name="ingresoUsuario">
+<http:operation location="/ingresoUsuario"/>
+<wsdl:input>
+<http:urlEncoded/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="crearTramite">
+<http:operation location="/crearTramite"/>
+<wsdl:input>
+<http:urlEncoded/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="loginTramitesWeb">
+<http:operation location="/loginTramitesWeb"/>
+<wsdl:input>
+<http:urlEncoded/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="validacionUsuarioLogueado">
+<http:operation location="/validacionUsuarioLogueado"/>
+<wsdl:input>
+<http:urlEncoded/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="catalogoTiposTramites">
+<http:operation location="/catalogoTiposTramites"/>
+<wsdl:input>
+<http:urlEncoded/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="catalogoRequisitosTipoTramite">
+<http:operation location="/catalogoRequisitosTipoTramite"/>
+<wsdl:input>
+<http:urlEncoded/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="propiedadesIdentificacion">
+<http:operation location="/propiedadesIdentificacion"/>
+<wsdl:input>
+<http:urlEncoded/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="insercionDocumentos">
+<http:operation location="/insercionDocumentos"/>
+<wsdl:input>
+<http:urlEncoded/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="consultaTramites">
+<http:operation location="/consultaTramites"/>
+<wsdl:input>
+<http:urlEncoded/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="WS_IngresoTramitesHttpPost" type="tns:WS_IngresoTramitesHttpPost">
+<http:binding verb="POST"/>
+<wsdl:operation name="ingresoUsuario">
+<http:operation location="/ingresoUsuario"/>
+<wsdl:input>
+<mime:content type="application/x-www-form-urlencoded"/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="crearTramite">
+<http:operation location="/crearTramite"/>
+<wsdl:input>
+<mime:content type="application/x-www-form-urlencoded"/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="loginTramitesWeb">
+<http:operation location="/loginTramitesWeb"/>
+<wsdl:input>
+<mime:content type="application/x-www-form-urlencoded"/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="validacionUsuarioLogueado">
+<http:operation location="/validacionUsuarioLogueado"/>
+<wsdl:input>
+<mime:content type="application/x-www-form-urlencoded"/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="catalogoTiposTramites">
+<http:operation location="/catalogoTiposTramites"/>
+<wsdl:input>
+<mime:content type="application/x-www-form-urlencoded"/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="catalogoRequisitosTipoTramite">
+<http:operation location="/catalogoRequisitosTipoTramite"/>
+<wsdl:input>
+<mime:content type="application/x-www-form-urlencoded"/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="propiedadesIdentificacion">
+<http:operation location="/propiedadesIdentificacion"/>
+<wsdl:input>
+<mime:content type="application/x-www-form-urlencoded"/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="insercionDocumentos">
+<http:operation location="/insercionDocumentos"/>
+<wsdl:input>
+<mime:content type="application/x-www-form-urlencoded"/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="consultaTramites">
+<http:operation location="/consultaTramites"/>
+<wsdl:input>
+<mime:content type="application/x-www-form-urlencoded"/>
+</wsdl:input>
+<wsdl:output>
+<mime:mimeXml part="Body"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="WS_IngresoTramites">
+<wsdl:port name="WS_IngresoTramitesSoap" binding="tns:WS_IngresoTramitesSoap">
+<soap:address location="http://ws-declaraciones.curridabat.go.cr/WS_IngresoTramites.asmx"/>
+</wsdl:port>
+<wsdl:port name="WS_IngresoTramitesSoap12" binding="tns:WS_IngresoTramitesSoap12">
+<soap12:address location="http://ws-declaraciones.curridabat.go.cr/WS_IngresoTramites.asmx"/>
+</wsdl:port>
+<wsdl:port name="WS_IngresoTramitesHttpGet" binding="tns:WS_IngresoTramitesHttpGet">
+<http:address location="http://ws-declaraciones.curridabat.go.cr/WS_IngresoTramites.asmx"/>
+</wsdl:port>
+<wsdl:port name="WS_IngresoTramitesHttpPost" binding="tns:WS_IngresoTramitesHttpPost">
+<http:address location="http://ws-declaraciones.curridabat.go.cr/WS_IngresoTramites.asmx"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>
