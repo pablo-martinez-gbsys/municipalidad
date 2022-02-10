@@ -18,7 +18,7 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <!--Librerias de terceros-->
         <lombok.version>1.16.20</lombok.version>
-        <hibernate.version>5.4.10.Final</hibernate.version>
+        <hibernate.version>5.4.24.Final</hibernate.version>
         <querydsl.version>4.2.1</querydsl.version>
         <!--<hibernate.validator.version>6.0.5.Final</hibernate.validator.version>-->
         <hibernate.validator.version>5.4.3.Final</hibernate.validator.version>
